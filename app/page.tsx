@@ -585,7 +585,7 @@ export default function Home() {
               {
                 image: "/portfolio/scs.png",
                 title: "SCS",
-                description: "حلول تقنية متقدمة ومبتكرة",
+                description: "موقع تسويقي لجلب العملاء المحتملين",
                 fullDescription: "SCS يقدم حلول تقنية متقدمة ومبتكرة للشركات التي تسعى للتطور الرقمي. تم تصميم النظام ليلبي احتياجات الأعمال الحديثة بكفاءة وفعالية عالية.",
                 features: [
                   "حلول تقنية مبتكرة ومتطورة",
@@ -595,7 +595,7 @@ export default function Home() {
                   "أمان وحماية البيانات",
                   "دعم تقني متخصص"
                 ],
-                website: "https://scs-solutions.com"
+                website: "https://cafardservices.com"
               },
               {
                 image: "/portfolio/tohatsu.png",
@@ -610,7 +610,7 @@ export default function Home() {
                   "معلومات تفصيلية عن الشركة",
                   "نماذج التواصل المتقدمة"
                 ],
-                website: "https://tohatsu-industrial.com"
+                website: "https://tohatsuarabia.com"
               },
               {
                 image: "/portfolio/greenroasteries.png",
@@ -625,7 +625,7 @@ export default function Home() {
                   "نظام تقييم ومراجعات",
                   "برنامج ولاء العملاء"
                 ],
-                website: "https://greenroasteries.com"
+                website: "https://thegreenroasteries.com"
               },
               {
                 image: "/portfolio/mydoctorclinic.png",
@@ -640,7 +640,7 @@ export default function Home() {
                   "تذكير بالمواعيد",
                   "نظام دفع آمن للخدمات"
                 ],
-                website: "https://mydoctorclinic.com"
+                website: "https://kw.my-doctor-dental.com"
               },
               {
                 image: "/portfolio/zeroglissage.png",
@@ -670,7 +670,7 @@ export default function Home() {
                   "نصائح طبية وإرشادات",
                   "تواصل مباشر مع العيادة"
                 ],
-                website: "https://newrayan-dental.com"
+                website: "https://kw.new-rayan-dental.com"
               }
             ].map((project, index) => (
               <motion.div
