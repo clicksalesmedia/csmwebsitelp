@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@300;400;500;600;700;800;900&display=swap');
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #272727;
+  --foreground: #ffffff;
+  --accent-color: #c3a177;
 }
 
 @theme inline {
@@ -14,13 +16,106 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #272727;
+    --foreground: #ffffff;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Noto Kufi Arabic', Arial, Helvetica, sans-serif;
+  direction: rtl;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(195, 161, 119, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(195, 161, 119, 0.5);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(195, 161, 119, 0.8);
+}
+
+/* Selection styling */
+::selection {
+  background: rgba(195, 161, 119, 0.3);
+  color: white;
+}
+
+/* Smooth transitions for all elements */
+* {
+  transition: all 0.3s ease;
+}
+
+/* Custom animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(195, 161, 119, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(195, 161, 119, 0.6); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 3s ease-in-out infinite;
+}
+
+/* Form focus styling */
+input:focus, textarea:focus, select:focus {
+  box-shadow: 0 0 0 3px rgba(195, 161, 119, 0.3);
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+/* Backdrop blur fallback */
+@supports not (backdrop-filter: blur(12px)) {
+  .backdrop-blur-sm {
+    background: rgba(39, 39, 39, 0.8) !important;
+  }
+  
+  .backdrop-blur-md {
+    background: rgba(39, 39, 39, 0.9) !important;
+  }
+}
+
+/* Infinite scroll animation for client logos */
+@keyframes scroll-seamless {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-25%);
+  }
+}
+
+.animate-scroll-seamless {
+  animation: scroll-seamless 30s linear infinite;
+  will-change: transform;
+}
+
+.animate-scroll-seamless:hover {
+  animation-play-state: paused;
 }
