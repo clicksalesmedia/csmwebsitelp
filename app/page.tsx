@@ -12,6 +12,8 @@ if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
 }
 
+// SEO Keywords: تصميم مواقع دبي, متاجر إلكترونية, صفحات هبوط, تسويق رقمي, شركة تصميم مواقع الإمارات
+
 export default function Home() {
   const heroRef = useRef(null);
   const servicesRef = useRef(null);

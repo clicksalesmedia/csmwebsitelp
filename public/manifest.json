@@ -1,0 +1,29 @@
+{
+  "name": "Click Sales Media - شركة تصميم المواقع الإلكترونية",
+  "short_name": "Click Sales Media",
+  "description": "شركة رائدة في تصميم وتطوير المواقع والمتاجر الإلكترونية في دبي والإمارات",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#272727",
+  "theme_color": "#c3a177",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/clicksalesmedialogo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/clicksalesmedialogo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "categories": ["business", "technology", "productivity"],
+  "lang": "ar",
+  "dir": "rtl",
+  "scope": "/",
+  "id": "clicksalesmedia-webapp"
+} 
