@@ -863,7 +863,7 @@ export default function Home() {
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" ref={pricingRef} className="py-20">
+      <section id="pricing" ref={pricingRef} className="py-20" style={{ backgroundColor: '#272727' }}>
         <div className="container mx-auto px-4">
           <motion.div 
             className="text-center mb-16"
@@ -878,40 +878,55 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {[
               {
-                name: "الباقة الأساسية",
+                name: "صفحات الهبوط",
+                description: "مثالية للحملات التسويقية والترويج",
                 features: [
-                  "موقع إلكتروني احترافي",
-                  "تصميم متجاوب",
-                  "استضافة لسنة واحدة",
-                  "دعم فني لشهرين",
-                  "تحسين SEO أساسي"
+                  "تجربة مستخدم متميزة (UX)",
+                  "أداء فائق السرعة",
+                  "هيكل تسويقي محترف",
+                  "نماذج تفاعلية متقدمة",
+                  "تكامل واتساب",
+                  "نظام تتبع العملاء والمبيعات",
+                  "تكامل نظام إدارة العملاء (CRM)"
                 ],
                 popular: false
               },
               {
-                name: "الباقة المتقدمة",
+                name: "المواقع الإلكترونية",
+                description: "حلول شاملة للأعمال والشركات",
                 features: [
-                  "موقع إلكتروني متطور",
-                  "متجر إلكتروني متكامل",
-                  "نظام دفع متكامل",
-                  "استضافة لسنتين",
-                  "دعم فني لـ 6 أشهر",
-                  "تحسين SEO متقدم",
-                  "تدريب على الإدارة"
+                  "تجربة مستخدم متميزة (UX)",
+                  "أداء فائق السرعة",
+                  "تصميم عصري ومتجاوب",
+                  "نماذج تفاعلية متقدمة",
+                  "تكامل واتساب",
+                  "نظام تتبع العملاء والمبيعات",
+                  "تكامل نظام إدارة العملاء (CRM)",
+                  "عدة صفحات متخصصة",
+                  "متجر إلكتروني أساسي",
+                  "لوحة تحكم إدارية",
+                  "تحسين محركات البحث (SEO)",
+                  "دعم متعدد اللغات",
+                  "استضافة مجانية لمدة سنتين"
                 ],
                 popular: true
               },
               {
-                name: "الباقة الشاملة",
+                name: "المتاجر الإلكترونية",
+                description: "منصة تجارة إلكترونية متكاملة ومتطورة",
                 features: [
-                  "موقع إلكتروني شامل",
-                  "متجر إلكتروني متقدم",
-                  "نظام التسويق والتتبع",
-                  "نظام إدارة متكامل",
-                  "استضافة لـ 3 سنوات",
-                  "دعم فني لسنة كاملة",
-                  "حملة تسويقية",
-                  "تقارير وتحليلات متقدمة"
+                  "تصميم عصري ومرن",
+                  "سهولة استخدام للعملاء",
+                  "كتالوج منتجات شامل",
+                  "تحسين صفحات المنتجات",
+                  "تحسين الثقة الاجتماعية",
+                  "تحسين نظام المراجعات",
+                  "بوابة إدارة شاملة",
+                  "نظام العروض والحزم",
+                  "أمان وحماية متقدمة",
+                  "تكامل بوابات الدفع",
+                  "تصميم ونظام فريد",
+                  "استضافة مجانية لمدة 5 سنوات"
                 ],
                 popular: false
               }
@@ -936,8 +951,11 @@ export default function Home() {
                   </div>
                 )}
                 
-                <div className="flex items-center justify-between mb-8">
-                  <h3 className={`text-2xl font-bold ${plan.popular ? 'text-[#272727]' : ''}`} style={!plan.popular ? { color: '#c3a177' } : {}}>{plan.name}</h3>
+                <div className="flex items-center justify-between mb-6">
+                  <div>
+                    <h3 className={`text-2xl font-bold mb-2 ${plan.popular ? 'text-[#272727]' : ''}`} style={!plan.popular ? { color: '#c3a177' } : {}}>{plan.name}</h3>
+                    <p className={`text-sm opacity-80 ${plan.popular ? 'text-[#272727]' : 'text-white'}`}>{plan.description}</p>
+                  </div>
                   <motion.button
                     className={`py-3 px-6 rounded-full font-bold text-sm transition-all duration-300 flex items-center gap-2 ${
                       plan.popular
@@ -953,11 +971,11 @@ export default function Home() {
                   </motion.button>
                 </div>
 
-                <ul className="space-y-4">
+                <ul className="space-y-3">
                   {plan.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center">
-                      <Check className="w-5 h-5 text-green-400 ml-3 flex-shrink-0" />
-                      <span>{feature}</span>
+                    <li key={featureIndex} className="flex items-start">
+                      <Check className="w-4 h-4 text-green-400 ml-2 mt-1 flex-shrink-0" />
+                      <span className="text-sm leading-relaxed">{feature}</span>
                     </li>
                   ))}
                 </ul>
