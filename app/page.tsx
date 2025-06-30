@@ -33,11 +33,19 @@ export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [imageAnimation, setImageAnimation] = useState(false);
 
-  // WhatsApp function
+  // WhatsApp function with conversion tracking
   const openWhatsApp = (message: string = '') => {
     const phoneNumber = '971503412174'; // Replace with your actual WhatsApp number
     const encodedMessage = encodeURIComponent(message || 'مرحباً، أريد الاستفسار عن خدماتكم');
-    window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    
+    // Track conversion before opening WhatsApp
+    if (typeof window !== 'undefined' && (window as any).gtag_report_conversion) {
+      (window as any).gtag_report_conversion(whatsappUrl);
+    } else {
+      // Fallback if tracking is not available
+      window.open(whatsappUrl, '_blank');
+    }
   };
 
   useEffect(() => {
