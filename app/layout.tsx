@@ -174,21 +174,51 @@ export default function RootLayout({
           }}
         />
         
-        {/* WhatsApp Button Conversion Tracking */}
+        {/* WhatsApp Message Sent Conversion Tracking */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
-              function gtag_report_conversion(url) {
-                var callback = function () {
-                  if (typeof(url) != 'undefined') {
-                    window.location = url;
+              let whatsappClickTime = 0;
+              let conversionFired = false;
+              
+              function trackWhatsAppClick(url) {
+                whatsappClickTime = Date.now();
+                conversionFired = false;
+                
+                // Open WhatsApp immediately
+                window.open(url, '_blank');
+                
+                // Set up page visibility listener to detect return from WhatsApp
+                if (!document.hasWhatsAppListener) {
+                  document.addEventListener('visibilitychange', function() {
+                    if (!document.hidden && whatsappClickTime > 0 && !conversionFired) {
+                      const timeAway = Date.now() - whatsappClickTime;
+                      
+                      // If user was away for 15+ seconds, assume they sent a message
+                      if (timeAway >= 15000) {
+                        gtag('event', 'conversion', {
+                          'send_to': 'AW-16639739577/UFOjCJCytOYaELmNuf49'
+                        });
+                        conversionFired = true;
+                        whatsappClickTime = 0;
+                      }
+                    }
+                  });
+                  document.hasWhatsAppListener = true;
+                }
+              }
+              
+              // Fallback: Fire conversion after 30 seconds if user doesn't return
+              function scheduleConversionFallback() {
+                setTimeout(function() {
+                  if (whatsappClickTime > 0 && !conversionFired) {
+                    gtag('event', 'conversion', {
+                      'send_to': 'AW-16639739577/UFOjCJCytOYaELmNuf49'
+                    });
+                    conversionFired = true;
+                    whatsappClickTime = 0;
                   }
-                };
-                gtag('event', 'conversion', {
-                    'send_to': 'AW-16639739577/5o_TCK7Pw-YaELmNuf49',
-                    'event_callback': callback
-                });
-                return false;
+                }, 30000);
               }
             `,
           }}
