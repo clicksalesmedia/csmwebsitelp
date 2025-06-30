@@ -40,8 +40,12 @@ export default function Home() {
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
     
     // Track conversion before opening WhatsApp
-    if (typeof window !== 'undefined' && (window as any).gtag_report_conversion) {
-      (window as any).gtag_report_conversion(whatsappUrl);
+    const windowWithGtag = window as typeof window & {
+      gtag_report_conversion?: (url: string) => boolean;
+    };
+    
+    if (typeof window !== 'undefined' && windowWithGtag.gtag_report_conversion) {
+      windowWithGtag.gtag_report_conversion(whatsappUrl);
     } else {
       // Fallback if tracking is not available
       window.open(whatsappUrl, '_blank');
